@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        nav{
+            background-color: red;
+            padding: 15px;
+            text-align: center;
+        }
+        a{
+            background-color: yellow;
+            border-radius: 10px;
+            padding: 5px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+</head>
+<body>
+    <center>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'admin:index'  %}">AdminPage</a>
+        <a href="{% url 'reg' %}">Registration</a>
+        
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'user_logout' %}" >user_logout</a>
+        <a href="{% url 'profile_details' %}">Profile</a>
+        <a href="{% url 'change_password' %}">Change password</a>
+
+        {% else %}
+        <a href="{% url 'user_login' %}"> Login</a>
+        
+        {% endif %}
+
+    </nav>
+    {% block body_block %}
+    {% endblock %}
+</center>
+</body>
+</html>
+
+

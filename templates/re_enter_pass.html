@@ -1,0 +1,16 @@
+{% extends 'dummy.html' %}
+
+{% block title %}
+<title>chnage password</title>
+{% endblock %}
+
+{% block body_block %}
+
+<form action="" method="post">
+    {% csrf_token   %}
+    <br/><br/>
+    <input type="password" name="pw" id="pw" placeholder="enter new password"><br/><br/><br/>
+    <input type="submit" value="SUBMIT HERE">
+</form>
+
+{% endblock %}
